@@ -40,14 +40,17 @@ struct TournamentBracketView: View {
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing : 25){
-                ForEach(viewModel.tournament.rounds,id: \.id) { round in
-                    
+                ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
                     VStack(spacing : 25){
                         
-                        ForEach(Array(round.matchUps.enumerated()),id: \.element.id) { index,matchUp in
-                            
-                            MatchupView(matchup: matchUp)
-                        }
+                        ForEach(Array(round.matchUps.enumerated()),id: \.element.id) { index,matchup in
+                                MatchupView(
+                                    matchup: matchup,
+                                    isLastColumn: viewModel.isLastColumn(column),
+                                    isFirstColumn: viewModel.isFirstColumn(column),
+                                    showDownwards: viewModel.showDownwardsLine(index)
+                                )
+                            }
                     }.frame(width: columnWidth)
                 }
             }

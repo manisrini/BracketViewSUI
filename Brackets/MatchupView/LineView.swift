@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SleeplingLine: View {
+struct SleepingLine: View {
     var body: some View {
         Rectangle()
             .frame(width: 50,height: 1)
@@ -27,7 +27,7 @@ struct StandingLine: View {
 
 
 #Preview {
-   SleeplingLine()
+   SleepingLine()
 }
 
 #Preview {

@@ -30,4 +30,28 @@ class TournamentBracketViewModel{
             )
         )
     }
+    
+    func isLastColumn(_ index : Int) -> Bool{
+        if index == tournament.rounds.count - 1{
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func isFirstColumn(_ index : Int) -> Bool{
+        if index == 0{
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func showDownwardsLine(_ index : Int) -> Bool{
+        if index % 2 == 0{
+            return true
+        }else{
+            return false
+        }
+    }
 }

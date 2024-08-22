@@ -19,8 +19,8 @@ struct BracketView: View {
     var body: some View {
         HStack(spacing : 20){
             VStack(spacing: 20){
-                MatchupView(matchup: viewModel.bracket.matchup1)
-                MatchupView(matchup: viewModel.bracket.matchup2)
+//                MatchupView(matchup: viewModel.bracket.matchup1)
+//                MatchupView(matchup: viewModel.bracket.matchup2)
             }
             
 //            MatchupView(matchup: viewModel.createMatchup())

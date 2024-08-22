@@ -10,13 +10,25 @@ import SwiftUI
 struct MatchupView: View {
     
     var matchup : Matchup
-    var isLastCell : Bool = false
-    var isFirstCell : Bool = false
+    var isLastColumn : Bool = true
+    var isFirstColumn : Bool = false
     var showDownwards : Bool = false
+    
+    init(matchup: Matchup, isLastColumn: Bool, isFirstColumn: Bool, showDownwards: Bool) {
+        self.matchup = matchup
+        self.isFirstColumn = isFirstColumn
+        self.isLastColumn = isLastColumn
+        self.showDownwards = showDownwards
+    }
     
     var body: some View {
             
         HStack(spacing : 0){
+            
+            if !isFirstColumn{
+                SleepingLine()
+            }
+            
             VStack(alignment: .leading) {
                 
                 HStack{
@@ -34,19 +46,22 @@ struct MatchupView: View {
             .padding()
             .cornerRadiusStyle()
             
-            SleeplingLine()
             
-            if showDownwards{
-                StandingLine(height: 100)
-                    .offset(y : 50)
-            }else{
-                StandingLine(height: 100)
-                    .offset(y : -50)
+            if !isLastColumn{
+                SleepingLine()
+                
+                if showDownwards{
+                    StandingLine(height: 100)
+                        .offset(y : 50)
+                }else{
+                    StandingLine(height: 100)
+                        .offset(y : -50)
+                }
+
             }
-            
         }
     }
 }
 #Preview {
-    MatchupView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)))
+    MatchupView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),isLastColumn: true,isFirstColumn: false,showDownwards: false)
 }
