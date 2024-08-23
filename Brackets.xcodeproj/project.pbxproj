@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A3C64792C77058300850ED0 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C64782C77058300850ED0 /* LineView.swift */; };
+		2A3C64B82C7770BA00850ED0 /* MatchupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C64B72C7770BA00850ED0 /* MatchupListView.swift */; };
 		2A6D805A2C760C4200556ADE /* TournamentBracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80592C760C4200556ADE /* TournamentBracketView.swift */; };
 		2A6D805D2C76172800556ADE /* MatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D805C2C76172800556ADE /* MatchupView.swift */; };
 		2A6D80612C76178100556ADE /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80602C76178100556ADE /* BracketView.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		2A3C64782C77058300850ED0 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		2A3C64B72C7770BA00850ED0 /* MatchupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupListView.swift; sourceTree = "<group>"; };
 		2A6D80592C760C4200556ADE /* TournamentBracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBracketView.swift; sourceTree = "<group>"; };
 		2A6D805C2C76172800556ADE /* MatchupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupView.swift; sourceTree = "<group>"; };
 		2A6D80602C76178100556ADE /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				2A6D805C2C76172800556ADE /* MatchupView.swift */,
 				2A3C64782C77058300850ED0 /* LineView.swift */,
 				2A6D80652C761D3D00556ADE /* ScoreView.swift */,
+				2A3C64B72C7770BA00850ED0 /* MatchupListView.swift */,
 			);
 			path = MatchupView;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A97E6262C74947B007D55D1 /* CustomViewModifiers.swift in Sources */,
+				2A3C64B82C7770BA00850ED0 /* MatchupListView.swift in Sources */,
 				2A6D80632C7618BD00556ADE /* BracketViewModel.swift in Sources */,
 				2A6D80612C76178100556ADE /* BracketView.swift in Sources */,
 				2A6D805D2C76172800556ADE /* MatchupView.swift in Sources */,

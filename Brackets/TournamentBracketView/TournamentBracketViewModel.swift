@@ -46,12 +46,5 @@ class TournamentBracketViewModel{
             return false
         }
     }
-    
-    func showDownwardsLine(_ index : Int) -> Bool{
-        if index % 2 == 0{
-            return true
-        }else{
-            return false
-        }
-    }
+
 }

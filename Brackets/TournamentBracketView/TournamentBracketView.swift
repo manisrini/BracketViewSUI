@@ -35,36 +35,49 @@ struct TournamentBracketView: View {
     
     var viewModel : TournamentBracketViewModel
     
-    private let columnWidth : CGFloat = UIScreen.main.bounds.width * 0.9
+    
+    
+    private var height: CGFloat {
+        100 * pow(2, CGFloat(1))
+    }
     
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack(spacing : 25){
-                ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
-                    VStack(spacing : 25){
+        
+        ScrollView(.vertical){
+            ScrollView(.horizontal) {
+                HStack(alignment : .top,spacing : 0){
+                    
+                    ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
                         
-                        ForEach(Array(round.matchUps.enumerated()),id: \.element.id) { index,matchup in
-                                MatchupView(
-                                    matchup: matchup,
-                                    isLastColumn: viewModel.isLastColumn(column),
-                                    isFirstColumn: viewModel.isFirstColumn(column),
-                                    showDownwards: viewModel.showDownwardsLine(index)
-                                )
-                            }
-                    }.frame(width: columnWidth)
+                        MatchupListView(matchups: round.matchUps, column: column,isLastColumn: viewModel.isLastColumn(column), isFirstColumn: viewModel.isFirstColumn(column))
+                    }
                 }
+                .scrollTargetLayout()
             }
-            .scrollTargetLayout()
+            .scrollTargetBehavior(.viewAligned)
+            .scrollIndicators(.hidden)
+            .contentMargins(15, for: .scrollContent)
+
         }
-        .scrollTargetBehavior(.viewAligned)
-        .scrollIndicators(.hidden)
-        .contentMargins(15, for: .scrollContent)
+        .padding(.vertical,20)
     }
+    
+    
 }
 
 #Preview {
     TournamentBracketView(viewModel: TournamentBracketViewModel(tournament: Tournament(
         rounds: [
+            Round(id: 4, matchUps: [
+                Matchup(id: 1, team1: Team(id: 1, name: "england", image: "England", points: 2), team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),
+                Matchup(id: 2, team1: Team(id: 3, name: "india", image: "India", points: 5), team2: Team(id: 4, name: "argentina", image: "Argentina", points: 4)),
+                Matchup(id: 3, team1: Team(id: 5, name: "australia", image: "England", points: 2), team2: Team(id: 6, name: "spain", image: "India", points: 3)),
+                Matchup(id: 4, team1: Team(id: 7, name: "england", image: "England", points: 2), team2: Team(id: 8, name: "netherland", image: "Netherland", points: 3)),
+                Matchup(id: 1, team1: Team(id: 1, name: "england", image: "England", points: 2), team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),
+                Matchup(id: 2, team1: Team(id: 3, name: "india", image: "India", points: 5), team2: Team(id: 4, name: "argentina", image: "Argentina", points: 4)),
+                Matchup(id: 3, team1: Team(id: 5, name: "australia", image: "England", points: 2), team2: Team(id: 6, name: "spain", image: "India", points: 3)),
+                Matchup(id: 4, team1: Team(id: 7, name: "england", image: "England", points: 2), team2: Team(id: 8, name: "netherland", image: "Netherland", points: 3))
+            ]),
         Round(id: 1, matchUps: [
             Matchup(id: 1, team1: Team(id: 1, name: "england", image: "England", points: 2), team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),
             Matchup(id: 2, team1: Team(id: 3, name: "india", image: "India", points: 5), team2: Team(id: 4, name: "argentina", image: "Argentina", points: 4)),
