@@ -19,18 +19,6 @@ class TournamentBracketViewModel{
         return round.matchUps.count / 2
     }
     
-    func createBracketViewModel(_ index : Int,_ round : Round) -> BracketViewModel{
-        let firstMatchup = round.matchUps[index]
-        let secondMatchup = round.matchUps[index + 1]
-        
-        return BracketViewModel(bracket:
-            Bracket(
-            matchup1: firstMatchup,
-            matchup2: secondMatchup
-            )
-        )
-    }
-    
     func isLastColumn(_ index : Int) -> Bool{
         if index == tournament.rounds.count - 1{
             return true
@@ -46,5 +34,6 @@ class TournamentBracketViewModel{
             return false
         }
     }
+
 
 }

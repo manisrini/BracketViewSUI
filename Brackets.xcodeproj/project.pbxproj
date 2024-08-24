@@ -11,8 +11,6 @@
 		2A3C64B82C7770BA00850ED0 /* MatchupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C64B72C7770BA00850ED0 /* MatchupListView.swift */; };
 		2A6D805A2C760C4200556ADE /* TournamentBracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80592C760C4200556ADE /* TournamentBracketView.swift */; };
 		2A6D805D2C76172800556ADE /* MatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D805C2C76172800556ADE /* MatchupView.swift */; };
-		2A6D80612C76178100556ADE /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80602C76178100556ADE /* BracketView.swift */; };
-		2A6D80632C7618BD00556ADE /* BracketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80622C7618BD00556ADE /* BracketViewModel.swift */; };
 		2A6D80662C761D3D00556ADE /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80652C761D3D00556ADE /* ScoreView.swift */; };
 		2A6D806A2C761FA600556ADE /* TournamentBracketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80692C761FA600556ADE /* TournamentBracketViewModel.swift */; };
 		2A97E5F82C748E29007D55D1 /* BracketsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E5F72C748E29007D55D1 /* BracketsApp.swift */; };
@@ -50,8 +48,6 @@
 		2A3C64B72C7770BA00850ED0 /* MatchupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupListView.swift; sourceTree = "<group>"; };
 		2A6D80592C760C4200556ADE /* TournamentBracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBracketView.swift; sourceTree = "<group>"; };
 		2A6D805C2C76172800556ADE /* MatchupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupView.swift; sourceTree = "<group>"; };
-		2A6D80602C76178100556ADE /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
-		2A6D80622C7618BD00556ADE /* BracketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketViewModel.swift; sourceTree = "<group>"; };
 		2A6D80652C761D3D00556ADE /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		2A6D80692C761FA600556ADE /* TournamentBracketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBracketViewModel.swift; sourceTree = "<group>"; };
 		2A97E5F42C748E29007D55D1 /* Brackets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brackets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,15 +102,6 @@
 			path = MatchupView;
 			sourceTree = "<group>";
 		};
-		2A6D80672C761EE500556ADE /* SingleBracketView */ = {
-			isa = PBXGroup;
-			children = (
-				2A6D80602C76178100556ADE /* BracketView.swift */,
-				2A6D80622C7618BD00556ADE /* BracketViewModel.swift */,
-			);
-			path = SingleBracketView;
-			sourceTree = "<group>";
-		};
 		2A6D80682C761F8E00556ADE /* TournamentBracketView */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +139,6 @@
 				2A97E6292C74C787007D55D1 /* CustomTabView.swift */,
 				2A6D80682C761F8E00556ADE /* TournamentBracketView */,
 				2A6D80642C761CFE00556ADE /* MatchupView */,
-				2A6D80672C761EE500556ADE /* SingleBracketView */,
 				2A97E62C2C74C890007D55D1 /* Extensions.swift */,
 				2A97E6252C74947B007D55D1 /* CustomViewModifiers.swift */,
 				2A97E6272C749861007D55D1 /* PropWrappers.swift */,
@@ -319,8 +305,6 @@
 			files = (
 				2A97E6262C74947B007D55D1 /* CustomViewModifiers.swift in Sources */,
 				2A3C64B82C7770BA00850ED0 /* MatchupListView.swift in Sources */,
-				2A6D80632C7618BD00556ADE /* BracketViewModel.swift in Sources */,
-				2A6D80612C76178100556ADE /* BracketView.swift in Sources */,
 				2A6D805D2C76172800556ADE /* MatchupView.swift in Sources */,
 				2A3C64792C77058300850ED0 /* LineView.swift in Sources */,
 				2A6D806A2C761FA600556ADE /* TournamentBracketViewModel.swift in Sources */,

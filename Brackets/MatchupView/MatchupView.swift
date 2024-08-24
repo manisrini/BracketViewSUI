@@ -60,7 +60,6 @@ struct MatchupView: View {
     
     private var height : CGFloat{
         let cellHeight : CGFloat =  120
-        print("Height =>>>>>>>>> \(cellHeight * pow(2, CGFloat(heightExp)))")
         return cellHeight * pow(2, CGFloat(heightExp))
     }
     

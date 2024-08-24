@@ -34,10 +34,10 @@ struct Team{
 struct TournamentBracketView: View {
     
     var viewModel : TournamentBracketViewModel
+    let columnWidth: CGFloat = UIScreen.main.bounds.width * 0.9
     @State var focusedColumnIndex : Int = 0
     @State var offsetX : CGFloat = 0
-    let columnWidth: CGFloat = UIScreen.main.bounds.width * 0.9
-    
+
     var drag : some Gesture{
         DragGesture()
             .onChanged{value in
@@ -100,7 +100,6 @@ struct TournamentBracketView: View {
             focusedColumnIndex -= 1
         }
         offsetX = -CGFloat(focusedColumnIndex) * columnWidth
-
     }
 }
 
