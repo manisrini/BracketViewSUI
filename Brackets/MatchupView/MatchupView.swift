@@ -31,29 +31,37 @@ struct MatchupView: View {
             
             leftLineArea
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading,spacing: 5) {
                 
-                HStack{
-                    Text(matchup.date)
-                    Spacer()
-                    Text("FT")
+                if !isCollapsed{
+                    HStack{
+                        Text(matchup.date)
+                        Spacer()
+                        Text("FT")
+                    }
                 }
-                
+                 
                 ScoreView(team: matchup.team1)
                 
-                ScoreView(team: matchup.team2)
+                if !isCollapsed{
+                    ScoreView(team: matchup.team2)
+                }
 
             }
-            .frame(width: 250,height: 100)
             .padding()
+            .frame(width: 250,height: isCollapsed ? 50 : 100)
             .cornerRadiusStyle()
-            
+                
             rightLineArea
         }
+        .frame(height: height)
+        .transition(.opacity.combined(with: .scale(1, anchor: .top)))
     }
     
     private var height : CGFloat{
-        100 * pow(2, CGFloat(1))
+        let cellHeight : CGFloat =  120
+        print("Height =>>>>>>>>> \(cellHeight * pow(2, CGFloat(heightExp)))")
+        return cellHeight * pow(2, CGFloat(heightExp))
     }
     
     private var leftLineArea : some View{
@@ -72,6 +80,7 @@ struct MatchupView: View {
                 rightLine
             }else{
                 Spacer()
+                    .frame(width: UIScreen.main.bounds.width * 0.05,height: 2)
             }
         }
     }
@@ -91,9 +100,9 @@ struct MatchupView: View {
     private var topMatchVerticalLine : some View{
         VStack(spacing: 0){
             Spacer()
-                .frame(height: height/2)
+                .frame(height: height/2 + height/3)
             Rectangle()
-                .frame(width : 2,height: height/2)
+                .frame(width : 2,height: height/2 + height/3)
             
         }
     }
@@ -101,13 +110,13 @@ struct MatchupView: View {
     private var bottomMatchVerticalLine : some View{
         VStack(spacing: 0){
             Rectangle()
-                .frame(width : 2,height: height/2)
+                .frame(width : 2,height: height/2 + height/3)
             Spacer()
-                .frame(height: height/2)
+                .frame(height: height/2 + height/3)
         }
     }
 
 }
 #Preview {
-    MatchupView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),isLastColumn: false,isFirstColumn: false,heightExp: 1,isTopMatch: true,isCollapsed: false)
+    MatchupView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),isLastColumn: false,isFirstColumn: true,heightExp: 0,isTopMatch: true,isCollapsed: true)
 }
