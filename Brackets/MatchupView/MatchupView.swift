@@ -10,27 +10,26 @@ import SwiftUI
 struct MatchupView: View {
     
     var matchup : Matchup
-    var isLastColumn : Bool = true
-    var isFirstColumn : Bool = false
-    var showDownwards : Bool = false
-    var lineHeight : CGFloat
+    var isLastColumn : Bool
+    var isFirstColumn : Bool
+    var heightExp : Int
+    var isTopMatch : Bool
+    var isCollapsed : Bool
     
-    
-    init(matchup: Matchup, isLastColumn: Bool, isFirstColumn: Bool, showDownwards: Bool,lineHeight : CGFloat) {
+    init(matchup: Matchup, isLastColumn: Bool, isFirstColumn: Bool, heightExp: Int, isTopMatch: Bool, isCollapsed: Bool) {
         self.matchup = matchup
-        self.isFirstColumn = isFirstColumn
         self.isLastColumn = isLastColumn
-        self.showDownwards = showDownwards
-        self.lineHeight = lineHeight
+        self.isFirstColumn = isFirstColumn
+        self.heightExp = heightExp
+        self.isTopMatch = isTopMatch
+        self.isCollapsed = isCollapsed
     }
     
     var body: some View {
             
         HStack(spacing : 0){
             
-            if !isFirstColumn{
-                SleepingLine()
-            }
+            leftLineArea
             
             VStack(alignment: .leading) {
                 
@@ -49,24 +48,66 @@ struct MatchupView: View {
             .padding()
             .cornerRadiusStyle()
             
-            
-            if !isLastColumn{
+            rightLineArea
+        }
+    }
+    
+    private var height : CGFloat{
+        100 * pow(2, CGFloat(1))
+    }
+    
+    private var leftLineArea : some View{
+        Group{
+            if !isFirstColumn{
                 SleepingLine()
-                
-                VStack{
-                    if showDownwards{
-                        StandingLine(height: lineHeight)
-                            .offset(y : lineHeight/2)
-                    }else{
-                        StandingLine(height: lineHeight)
-                            .offset(y : -lineHeight/2)
-                    }
-
-                }
+            }else{
+                Spacer()
             }
         }
     }
+    
+    private var rightLineArea : some View{
+        Group{
+            if !isLastColumn{
+                rightLine
+            }else{
+                Spacer()
+            }
+        }
+    }
+    
+    private var rightLine : some View{
+        HStack(spacing : 0){
+            SleepingLine()
+            
+            if isTopMatch{
+                topMatchVerticalLine
+            }else{
+                bottomMatchVerticalLine
+            }
+        }
+    }
+    
+    private var topMatchVerticalLine : some View{
+        VStack(spacing: 0){
+            Spacer()
+                .frame(height: height/2)
+            Rectangle()
+                .frame(width : 2,height: height/2)
+            
+        }
+    }
+    
+    private var bottomMatchVerticalLine : some View{
+        VStack(spacing: 0){
+            Rectangle()
+                .frame(width : 2,height: height/2)
+            Spacer()
+                .frame(height: height/2)
+        }
+    }
+
 }
 #Preview {
-    MatchupView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),isLastColumn: false,isFirstColumn: false,showDownwards: false,lineHeight: 100)
+    MatchupView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),isLastColumn: false,isFirstColumn: false,heightExp: 1,isTopMatch: true,isCollapsed: false)
 }

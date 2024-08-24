@@ -34,35 +34,72 @@ struct Team{
 struct TournamentBracketView: View {
     
     var viewModel : TournamentBracketViewModel
+    @State var focusedColumnIndex : Int = 0
+    @State var offsetX : CGFloat = 0
+    let columnWidth: CGFloat = UIScreen.main.bounds.width * 0.9
     
-    
-    
-    private var height: CGFloat {
-        100 * pow(2, CGFloat(1))
+    var drag : some Gesture{
+        DragGesture()
+            .onChanged{value in
+                offsetX = value.translation.width - CGFloat(focusedColumnIndex) * columnWidth
+            }
+            .onEnded(handleDragEnded)
     }
     
     var body: some View {
         
         ScrollView(.vertical){
-            ScrollView(.horizontal) {
-                HStack(alignment : .top,spacing : 0){
-                    
-                    ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
+            ScrollViewReader{ scrollViewProxy in
+                ScrollView(.horizontal) {
+                    HStack(alignment : .top,spacing : 0){
                         
-                        MatchupListView(matchups: round.matchUps, column: column,isLastColumn: viewModel.isLastColumn(column), isFirstColumn: viewModel.isFirstColumn(column))
+                        ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
+                            
+                            MatchupListView(matchups: round.matchUps, column: column,isLastColumn: viewModel.isLastColumn(column), isFirstColumn: viewModel.isFirstColumn(column))
+                
+                        }
                     }
+                    .offset(x : offsetX)
+                    .animation(.easeInOut,value: offsetX)
+                    .scrollTargetLayout()
+
                 }
-                .scrollTargetLayout()
+                .scrollDisabled(true)
+                .gesture(drag)
+                .scrollTargetBehavior(.viewAligned)
+                .scrollIndicators(.hidden)
+                .contentMargins(15, for: .scrollContent)
             }
-            .scrollTargetBehavior(.viewAligned)
-            .scrollIndicators(.hidden)
-            .contentMargins(15, for: .scrollContent)
 
         }
         .padding(.vertical,20)
     }
+            
+    private func handleDragEnded(_ gestureValue : DragGesture.Value){
+        let threshold: CGFloat = 80
+        if gestureValue.translation.width < -threshold{
+            moveToNextColumn()
+        }else if gestureValue.translation.width > threshold{
+            moveToPrevColumn()
+        }else{
+            offsetX = -CGFloat(focusedColumnIndex) * columnWidth
+        }
+    }
     
+    private func moveToNextColumn(){
+        if focusedColumnIndex < viewModel.tournament.rounds.count - 1 {
+            focusedColumnIndex += 1
+        }
+        offsetX = -CGFloat(focusedColumnIndex) * columnWidth
+    }
     
+    private func moveToPrevColumn(){
+        if focusedColumnIndex > 0 {
+            focusedColumnIndex -= 1
+        }
+        offsetX = -CGFloat(focusedColumnIndex) * columnWidth
+
+    }
 }
 
 #Preview {

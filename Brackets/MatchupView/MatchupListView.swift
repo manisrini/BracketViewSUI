@@ -27,20 +27,19 @@ struct MatchupListView: View {
             
             ForEach(Array(self.matchups.enumerated()),id: \.element.id) { index,matchup in
                 
-                MatchupView(
-                    matchup: matchup,
-                    isLastColumn: isLastColumn,
-                    isFirstColumn: isFirstColumn,
-                    showDownwards: showDownwardsLine(index),
-                    lineHeight: getLineHeight(column: column)
-                )
+                MatchupView(matchup: matchup,
+                            isLastColumn: isLastColumn,
+                            isFirstColumn: isFirstColumn,
+                            heightExp: 1,
+                            isTopMatch: isTopMatch(index),
+                            isCollapsed: false)
             }
         }
         .padding(.top,getColumnTopPadding(column: column))
         
     }
     
-    func showDownwardsLine(_ index : Int) -> Bool{
+    func isTopMatch(_ index : Int) -> Bool{
         if index % 2 == 0{
             return true
         }else{
@@ -64,7 +63,7 @@ struct MatchupListView: View {
     
     func getSpacing(column : Int) -> CGFloat{
         var numberOfSpaceCells : Int = 0
-        var verticalPaddingSpace : CGFloat = CGFloat(column) * 15
+        let verticalPaddingSpace : CGFloat = CGFloat(column) * 15
 
         if column == 0{
             return 25
