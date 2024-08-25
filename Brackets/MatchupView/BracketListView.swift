@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MatchupListView: View {
+struct BracketListView: View {
     
     var matchups : [Matchup]
     var column : Int
@@ -29,7 +29,7 @@ struct MatchupListView: View {
             
             ForEach(Array(self.matchups.enumerated()),id: \.element.id) { index,matchup in
                 
-                MatchupView(matchup: matchup,
+                BracketView(matchup: matchup,
                             isLastColumn: isLastColumn,
                             isFirstColumn: isFirstColumn,
                             heightExp: column - focusedColumn,
@@ -50,7 +50,7 @@ struct MatchupListView: View {
 }
 
 #Preview {
-    MatchupListView(matchups: [
+    BracketListView(matchups: [
         Matchup(id: 1, team1: Team(id: 1, name: "england", image: "England", points: 2), team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3))
-    ], column: 1, focusedColumn: 0, isLastColumn: false, isFirstColumn: false)
+    ], column: 1, focusedColumn: 1, isLastColumn: false, isFirstColumn: false)
 }

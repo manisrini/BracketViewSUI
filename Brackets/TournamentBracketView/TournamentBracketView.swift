@@ -48,12 +48,20 @@ struct TournamentBracketView: View {
     
     var body: some View {
         
+        CustomTabView(selectedIndex: $focusedColumnIndex) { prevTabIndex,selectedTabIndex in
+            if selectedTabIndex > prevTabIndex{
+                moveToNextColumn()
+            }else{
+                moveToPrevColumn()
+            }
+        }
+        
         ScrollView(.vertical){
             ScrollViewReader{ scrollViewProxy in
                 ScrollView(.horizontal) {
                     HStack(alignment : .top,spacing : 0){
                         ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
-                            MatchupListView(
+                            BracketListView(
                                 matchups: round.matchUps,
                                 column: column,
                                 focusedColumn: focusedColumnIndex,
@@ -74,7 +82,6 @@ struct TournamentBracketView: View {
 
         }
         .gesture(drag)
-        .padding(.vertical,20)
     }
             
     private func handleDragEnded(_ gestureValue : DragGesture.Value){

@@ -7,43 +7,55 @@
 
 import SwiftUI
 
+typealias selectedTabIndex = Int
+typealias prevSelectedTabIndex = Int
+
 struct CustomTabView: View {
     
-    
-    var tabs : [String] = ["Round of 16","Quarterfinal"]
+    var tabs : [String] = ["Round of 16","Quarters","Semis","Final"]
+    @Binding var selectedIndex : Int
+    var didSelectTab : ((prevSelectedTabIndex,selectedTabIndex)->())?
     
     var body: some View {
-//        ZStack{
-//            Rectangle()
-//                .frame(height: 60)
-//                .foregroundStyle(Color(hex: "242832"))
-//            
-//            VStack(alignment: .leading){
-//                HStack{
-//                    ForEach(tabs,id: \.self) { tab in
-//                        Text(tab)
-//                            .foregroundStyle(Color.white)
-//                    }
-//                }
-//            }
-//        }
-        ScrollView(.horizontal){
-            HStack{
-                ForEach(0..<10){ index in
-                    Rectangle()
-                        .frame(width: 100,height: 100)
-                        .overlay{
-                            Text("\(index)")
-                                .foregroundStyle(Color.white)
+        ZStack{
+            Rectangle()
+                .frame(height: 60)
+                .foregroundStyle(Color(hex: "242832"))
+            
+            ScrollView(.horizontal,showsIndicators: false){
+                HStack{
+                    ForEach(Array(tabs.enumerated()),id: \.element) { index,tab in
+                        
+                        Button {
+                            self.didSelectTab?(selectedIndex,index)
+                            selectedIndex = index
+                        } label: {
+                            VStack{
+                                Text(tab)
+                                    .foregroundStyle(Color.white)
+                                    .padding(.horizontal)
+                                
+                                if selectedIndex == index{
+                                    Rectangle()
+                                        .frame(width: 50,height: 3)
+                                        .foregroundStyle(Color.white)
+                                }else{
+                                    Rectangle()
+                                        .frame(width: 50,height: 3)
+                                        .foregroundStyle(Color(hex: "242832"))
+                                }
+                            }
                         }
+                    }
                 }
+                .padding(.leading,5)
             }
         }
-        .scrollTargetLayout()
-        .scrollTargetBehavior(.viewAligned)
     }
 }
 
 #Preview {
-    CustomTabView()
+    CustomTabView( selectedIndex: .constant(0), didSelectTab : {_,_ in
+        
+    })
 }
