@@ -49,10 +49,13 @@ struct TournamentBracketView: View {
     var body: some View {
         
         CustomTabView(selectedIndex: $focusedColumnIndex) { prevTabIndex,selectedTabIndex in
+            var steps : Int = 0
             if selectedTabIndex > prevTabIndex{
-                moveToNextColumn()
-            }else{
-                moveToPrevColumn()
+                steps = selectedTabIndex - prevTabIndex
+                moveToNextColumn(steps)
+            }else if selectedTabIndex < prevTabIndex{
+                steps = prevTabIndex - selectedTabIndex
+                moveToPrevColumn(steps)
             }
         }
         
@@ -60,6 +63,7 @@ struct TournamentBracketView: View {
             ScrollViewReader{ scrollViewProxy in
                 ScrollView(.horizontal) {
                     HStack(alignment : .top,spacing : 0){
+                        
                         ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
                             BracketListView(
                                 matchups: round.matchUps,
@@ -95,16 +99,16 @@ struct TournamentBracketView: View {
         }
     }
     
-    private func moveToNextColumn(){
+    private func moveToNextColumn(_ steps : Int = 1){
         if focusedColumnIndex < viewModel.tournament.rounds.count - 1 {
-            focusedColumnIndex += 1
+            focusedColumnIndex += steps
         }
         offsetX = -CGFloat(focusedColumnIndex) * columnWidth
     }
     
-    private func moveToPrevColumn(){
+    private func moveToPrevColumn(_ steps : Int = 1){
         if focusedColumnIndex > 0 {
-            focusedColumnIndex -= 1
+            focusedColumnIndex -= steps
         }
         offsetX = -CGFloat(focusedColumnIndex) * columnWidth
     }
