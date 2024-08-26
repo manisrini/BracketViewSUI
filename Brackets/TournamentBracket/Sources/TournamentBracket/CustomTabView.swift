@@ -31,19 +31,7 @@ struct CustomTabView: View {
                             selectedIndex = index
                         } label: {
                             VStack{
-                                Text(tab)
-                                    .foregroundStyle(Color.white)
-                                    .padding(.horizontal)
-                                
-                                if selectedIndex == index{
-                                    Rectangle()
-                                        .frame(width: 50,height: 3)
-                                        .foregroundStyle(Color.white)
-                                }else{
-                                    Rectangle()
-                                        .frame(width: 50,height: 3)
-                                        .foregroundStyle(Color(hex: "242832"))
-                                }
+                                TabItem(tab: tab, isEqual: selectedIndex == index)
                             }
                         }
                     }
@@ -51,6 +39,29 @@ struct CustomTabView: View {
                 .padding(.leading,5)
             }
         }
+    }
+}
+
+struct TabItem : View{
+    
+    var tab : String
+    var isEqual : Bool
+    
+    var body : some View{
+        Text(tab)
+            .foregroundStyle(Color.white)
+            .padding(.horizontal)
+        
+        if isEqual{
+            Rectangle()
+                .frame(width: 50,height: 3)
+                .foregroundStyle(Color.white)
+        }else{
+            Rectangle()
+                .frame(width: 50,height: 3)
+                .foregroundStyle(Color(hex: "242832"))
+        }
+
     }
 }
 

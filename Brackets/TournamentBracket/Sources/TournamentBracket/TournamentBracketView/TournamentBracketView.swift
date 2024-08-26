@@ -84,30 +84,38 @@ public struct TournamentBracketView: View {
                 moveToPrevColumn(steps)
             }
         }
-        
-        ScrollView(.vertical){
-            ScrollViewReader{ scrollViewProxy in
-                ScrollView(.horizontal) {
-                    HStack(alignment : .top,spacing : 0){
-                        
-                        ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
-                            BracketListView(
-                                matchups: round.matchUps,
-                                column: column,
-                                focusedColumn: focusedColumnIndex,
-                                isLastColumn: viewModel.isLastColumn(column),
-                                isFirstColumn: viewModel.isFirstColumn(column))
-                        }
-                    }
-                    .offset(x : offsetX)
-                    .animation(.easeInOut,value: offsetX)
-                    .scrollTargetLayout()
+        ScrollViewReader{ scrollViewProxy in
+            ScrollView(.vertical){
+                
+                VStack(spacing : 0){
+                    Group{}.id("scroll-to-top-view")
 
+                    ScrollView(.horizontal) {
+                        
+                        HStack(alignment : .top,spacing : 0){
+                            ForEach(Array(viewModel.tournament.rounds.enumerated()),id: \.element.id) { column,round in
+                                BracketListView(
+                                    matchups: round.matchUps,
+                                    column: column,
+                                    focusedColumn: focusedColumnIndex,
+                                    isLastColumn: viewModel.isLastColumn(column),
+                                    isFirstColumn: viewModel.isFirstColumn(column)
+                                )
+                            }
+                        }
+                        .offset(x : offsetX)
+                        .animation(.easeInOut,value: offsetX)
+                        .scrollTargetLayout()
+                        
+                    }
+                    .scrollDisabled(true)
+                    .scrollTargetBehavior(.viewAligned)
+                    .scrollIndicators(.hidden)
+                    .contentMargins(15, for: .scrollContent)
                 }
-                .scrollDisabled(true)
-                .scrollTargetBehavior(.viewAligned)
-                .scrollIndicators(.hidden)
-                .contentMargins(15, for: .scrollContent)
+            }
+            .onChange(of: focusedColumnIndex) { oldValue, newValue in
+                scrollViewProxy.scrollTo("scroll-to-top-view",anchor: .top)
             }
 
         }
