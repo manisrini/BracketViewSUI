@@ -15,10 +15,12 @@ struct ScoreView: View {
         HStack{
 
             if let _team = team{
-                Image(_team.image)
-                    .resizable()
-                    .frame(width: 20,height: 20)
-                    .cornerRadiusStyle(2)
+                if let _imageView = _team.image{
+                    Image(uiImage: _imageView)
+                        .resizable()
+                        .frame(width: 20,height: 20)
+                        .cornerRadiusStyle(2)
+                }
                 
                 Text(_team.name)
                     .lineLimit(1)

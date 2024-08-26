@@ -117,5 +117,5 @@ struct BracketView: View {
 
 }
 #Preview {
-    BracketView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3)),isLastColumn: false,isFirstColumn: true,heightExp: 0,isTopMatch: true,isCollapsed: true)
+    BracketView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name:"Netherland",image: UIImage(named: "Netherland"), points: 3)),isLastColumn: false,isFirstColumn: true,heightExp: 0,isTopMatch: true,isCollapsed: true)
 }

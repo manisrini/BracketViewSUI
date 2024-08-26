@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A3C64792C77058300850ED0 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C64782C77058300850ED0 /* LineView.swift */; };
-		2A3C64B82C7770BA00850ED0 /* BracketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C64B72C7770BA00850ED0 /* BracketListView.swift */; };
-		2A6D805A2C760C4200556ADE /* TournamentBracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80592C760C4200556ADE /* TournamentBracketView.swift */; };
-		2A6D805D2C76172800556ADE /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D805C2C76172800556ADE /* BracketView.swift */; };
-		2A6D80662C761D3D00556ADE /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80652C761D3D00556ADE /* ScoreView.swift */; };
-		2A6D806A2C761FA600556ADE /* TournamentBracketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D80692C761FA600556ADE /* TournamentBracketViewModel.swift */; };
 		2A97E5F82C748E29007D55D1 /* BracketsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E5F72C748E29007D55D1 /* BracketsApp.swift */; };
 		2A97E5FA2C748E29007D55D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E5F92C748E29007D55D1 /* ContentView.swift */; };
 		2A97E5FC2C748E2B007D55D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A97E5FB2C748E2B007D55D1 /* Assets.xcassets */; };
@@ -20,10 +14,7 @@
 		2A97E6092C748E2B007D55D1 /* BracketsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E6082C748E2B007D55D1 /* BracketsTests.swift */; };
 		2A97E6132C748E2B007D55D1 /* BracketsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E6122C748E2B007D55D1 /* BracketsUITests.swift */; };
 		2A97E6152C748E2B007D55D1 /* BracketsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E6142C748E2B007D55D1 /* BracketsUITestsLaunchTests.swift */; };
-		2A97E6262C74947B007D55D1 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E6252C74947B007D55D1 /* CustomViewModifiers.swift */; };
-		2A97E6282C749861007D55D1 /* PropWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E6272C749861007D55D1 /* PropWrappers.swift */; };
-		2A97E62A2C74C787007D55D1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E6292C74C787007D55D1 /* CustomTabView.swift */; };
-		2A97E62D2C74C890007D55D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E62C2C74C890007D55D1 /* Extensions.swift */; };
+		2AFA04112C7C7E9E0092F8D0 /* TournamentBracket in Frameworks */ = {isa = PBXBuildFile; productRef = 2AFA04102C7C7E9E0092F8D0 /* TournamentBracket */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A3C64782C77058300850ED0 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
-		2A3C64B72C7770BA00850ED0 /* BracketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketListView.swift; sourceTree = "<group>"; };
-		2A6D80592C760C4200556ADE /* TournamentBracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBracketView.swift; sourceTree = "<group>"; };
-		2A6D805C2C76172800556ADE /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
-		2A6D80652C761D3D00556ADE /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
-		2A6D80692C761FA600556ADE /* TournamentBracketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBracketViewModel.swift; sourceTree = "<group>"; };
 		2A97E5F42C748E29007D55D1 /* Brackets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brackets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A97E5F72C748E29007D55D1 /* BracketsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsApp.swift; sourceTree = "<group>"; };
 		2A97E5F92C748E29007D55D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,10 +45,7 @@
 		2A97E60E2C748E2B007D55D1 /* BracketsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BracketsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A97E6122C748E2B007D55D1 /* BracketsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsUITests.swift; sourceTree = "<group>"; };
 		2A97E6142C748E2B007D55D1 /* BracketsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2A97E6252C74947B007D55D1 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
-		2A97E6272C749861007D55D1 /* PropWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropWrappers.swift; sourceTree = "<group>"; };
-		2A97E6292C74C787007D55D1 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
-		2A97E62C2C74C890007D55D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2AFA040E2C7C7E910092F8D0 /* TournamentBracket */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TournamentBracket; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AFA04112C7C7E9E0092F8D0 /* TournamentBracket in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,26 +74,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A6D80642C761CFE00556ADE /* MatchupView */ = {
-			isa = PBXGroup;
-			children = (
-				2A6D805C2C76172800556ADE /* BracketView.swift */,
-				2A3C64782C77058300850ED0 /* LineView.swift */,
-				2A6D80652C761D3D00556ADE /* ScoreView.swift */,
-				2A3C64B72C7770BA00850ED0 /* BracketListView.swift */,
-			);
-			path = MatchupView;
-			sourceTree = "<group>";
-		};
-		2A6D80682C761F8E00556ADE /* TournamentBracketView */ = {
-			isa = PBXGroup;
-			children = (
-				2A6D80592C760C4200556ADE /* TournamentBracketView.swift */,
-				2A6D80692C761FA600556ADE /* TournamentBracketViewModel.swift */,
-			);
-			path = TournamentBracketView;
-			sourceTree = "<group>";
-		};
 		2A97E5EB2C748E29007D55D1 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +81,7 @@
 				2A97E6072C748E2B007D55D1 /* BracketsTests */,
 				2A97E6112C748E2B007D55D1 /* BracketsUITests */,
 				2A97E5F52C748E29007D55D1 /* Products */,
+				2AFA040F2C7C7E9E0092F8D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,14 +98,9 @@
 		2A97E5F62C748E29007D55D1 /* Brackets */ = {
 			isa = PBXGroup;
 			children = (
+				2AFA040E2C7C7E910092F8D0 /* TournamentBracket */,
 				2A97E5F72C748E29007D55D1 /* BracketsApp.swift */,
 				2A97E5F92C748E29007D55D1 /* ContentView.swift */,
-				2A97E6292C74C787007D55D1 /* CustomTabView.swift */,
-				2A6D80682C761F8E00556ADE /* TournamentBracketView */,
-				2A6D80642C761CFE00556ADE /* MatchupView */,
-				2A97E62C2C74C890007D55D1 /* Extensions.swift */,
-				2A97E6252C74947B007D55D1 /* CustomViewModifiers.swift */,
-				2A97E6272C749861007D55D1 /* PropWrappers.swift */,
 				2A97E5FB2C748E2B007D55D1 /* Assets.xcassets */,
 				2A97E5FD2C748E2B007D55D1 /* Preview Content */,
 			);
@@ -173,6 +132,13 @@
 			path = BracketsUITests;
 			sourceTree = "<group>";
 		};
+		2AFA040F2C7C7E9E0092F8D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +155,9 @@
 			dependencies = (
 			);
 			name = Brackets;
+			packageProductDependencies = (
+				2AFA04102C7C7E9E0092F8D0 /* TournamentBracket */,
+			);
 			productName = Brackets;
 			productReference = 2A97E5F42C748E29007D55D1 /* Brackets.app */;
 			productType = "com.apple.product-type.application";
@@ -303,18 +272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A97E6262C74947B007D55D1 /* CustomViewModifiers.swift in Sources */,
-				2A3C64B82C7770BA00850ED0 /* BracketListView.swift in Sources */,
-				2A6D805D2C76172800556ADE /* BracketView.swift in Sources */,
-				2A3C64792C77058300850ED0 /* LineView.swift in Sources */,
-				2A6D806A2C761FA600556ADE /* TournamentBracketViewModel.swift in Sources */,
-				2A97E6282C749861007D55D1 /* PropWrappers.swift in Sources */,
-				2A6D805A2C760C4200556ADE /* TournamentBracketView.swift in Sources */,
 				2A97E5FA2C748E29007D55D1 /* ContentView.swift in Sources */,
-				2A6D80662C761D3D00556ADE /* ScoreView.swift in Sources */,
-				2A97E62A2C74C787007D55D1 /* CustomTabView.swift in Sources */,
 				2A97E5F82C748E29007D55D1 /* BracketsApp.swift in Sources */,
-				2A97E62D2C74C890007D55D1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +603,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2AFA04102C7C7E9E0092F8D0 /* TournamentBracket */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TournamentBracket;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A97E5EC2C748E29007D55D1 /* Project object */;
 }

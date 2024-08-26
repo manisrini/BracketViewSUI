@@ -46,11 +46,11 @@ struct BracketListView: View {
         }else{
             return false
         }
-    }    
+    }
 }
 
 #Preview {
     BracketListView(matchups: [
-        Matchup(id: 1, team1: Team(id: 1, name: "england", image: "England", points: 2), team2: Team(id: 2, name: "netherland", image: "Netherland", points: 3))
+        Matchup(id: 1, team1: Team(id: 1, name: "england", image: UIImage(named: "England"), points: 2), team2: Team(id: 2, name: "netherland", image: UIImage(named: "Netherland"), points: 3))
     ], column: 1, focusedColumn: 1, isLastColumn: false, isFirstColumn: false)
 }

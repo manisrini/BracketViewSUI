@@ -7,11 +7,11 @@
 
 import Foundation
 
-class TournamentBracketViewModel{
+public class TournamentBracketViewModel{
  
     var tournament : Tournament
     
-    init(tournament: Tournament) {
+    public init(tournament: Tournament) {
         self.tournament = tournament
     }
     
