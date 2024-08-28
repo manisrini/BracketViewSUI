@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+private let designSystem = "DesignSystem"
+
 let package = Package(
     name: "TournamentBracket",
     platforms: [.iOS(.v17)],
@@ -10,13 +12,17 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "TournamentBracket",
-            targets: ["TournamentBracket"]),
+            targets: ["TournamentBracket"])
+    ],
+    dependencies: [
+        .package(name: designSystem, path: "../\(designSystem)")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "TournamentBracket",
+            dependencies: [.product(name: designSystem, package: designSystem)],
             resources: [.process("Resources")]),
         .testTarget(
             name: "TournamentBracketTests",

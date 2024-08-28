@@ -12,7 +12,7 @@ typealias prevSelectedTabIndex = Int
 
 struct CustomTabView: View {
     
-    var tabs : [String] = ["Round of 16","Quarters","Semis","Final"]
+    var tabs : [String] = ["Round of 32","Round of 16","Quarters","Semis","Final"]
     @Binding var selectedIndex : Int
     var didSelectTab : ((prevSelectedTabIndex,selectedTabIndex)->())?
     

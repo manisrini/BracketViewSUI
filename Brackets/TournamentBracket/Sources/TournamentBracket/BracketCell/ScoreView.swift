@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct ScoreView: View {
     
@@ -23,6 +24,7 @@ struct ScoreView: View {
                 }
                 
                 Text(_team.name)
+                    .font(.custom("Roboto", size: 20))
                     .lineLimit(1)
                 Spacer()
                 Text("\(_team.points)")
@@ -42,5 +44,5 @@ struct ScoreView: View {
 }
 
 #Preview {
-    ScoreView()
+    ScoreView(team: Team(id: 1, name: "India", image: UIImage(named: "India",in: .module,compatibleWith: nil), points: 3))
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A8451F52C7EF4A50025B543 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8451F42C7EF4A50025B543 /* DesignSystem */; };
 		2A97E5F82C748E29007D55D1 /* BracketsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E5F72C748E29007D55D1 /* BracketsApp.swift */; };
 		2A97E5FA2C748E29007D55D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97E5F92C748E29007D55D1 /* ContentView.swift */; };
 		2A97E5FC2C748E2B007D55D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A97E5FB2C748E2B007D55D1 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A1F62FF2C7E082600FEE3FD /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		2A97E5F42C748E29007D55D1 /* Brackets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brackets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A97E5F72C748E29007D55D1 /* BracketsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsApp.swift; sourceTree = "<group>"; };
 		2A97E5F92C748E29007D55D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AFA04112C7C7E9E0092F8D0 /* TournamentBracket in Frameworks */,
+				2A8451F52C7EF4A50025B543 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 		2A97E5F62C748E29007D55D1 /* Brackets */ = {
 			isa = PBXGroup;
 			children = (
+				2A1F62FF2C7E082600FEE3FD /* DesignSystem */,
 				2AFA040E2C7C7E910092F8D0 /* TournamentBracket */,
 				2A97E5F72C748E29007D55D1 /* BracketsApp.swift */,
 				2A97E5F92C748E29007D55D1 /* ContentView.swift */,
@@ -157,6 +161,7 @@
 			name = Brackets;
 			packageProductDependencies = (
 				2AFA04102C7C7E9E0092F8D0 /* TournamentBracket */,
+				2A8451F42C7EF4A50025B543 /* DesignSystem */,
 			);
 			productName = Brackets;
 			productReference = 2A97E5F42C748E29007D55D1 /* Brackets.app */;
@@ -605,6 +610,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A8451F42C7EF4A50025B543 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
 		2AFA04102C7C7E9E0092F8D0 /* TournamentBracket */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TournamentBracket;
