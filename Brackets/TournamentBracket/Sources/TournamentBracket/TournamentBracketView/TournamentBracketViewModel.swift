@@ -6,13 +6,26 @@
 //
 
 import Foundation
+import DesignSystem
 
-public class TournamentBracketViewModel{
+public class TournamentBracketTheme : ObservableObject{
+    let fontColor : String
+    let font : Fonts
+    
+    public init(fontColor : String = "000000",font : Fonts = .Roboto(.Black, 16)){
+        self.font = font
+        self.fontColor = fontColor
+    }
+}
+
+public class TournamentBracketViewModel : ObservableObject{
  
     var tournament : Tournament
+    var theme : TournamentBracketTheme
     
-    public init(tournament: Tournament) {
+    public init(tournament: Tournament,theme : TournamentBracketTheme = TournamentBracketTheme()) {
         self.tournament = tournament
+        self.theme = theme
     }
     
     func getBracketsCount(_ round : Round) -> Int{

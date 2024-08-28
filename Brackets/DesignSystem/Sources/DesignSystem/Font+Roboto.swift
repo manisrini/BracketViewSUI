@@ -7,16 +7,17 @@
 import SwiftUI
 
 public enum Roboto : String,CaseIterable{
-    case RobotoBlack = "Roboto-Black"
-    case RobotoBlackItalic = "Roboto-BlackItalic"
-    case RobotoBold = "Roboto-Bold"
-    case RobotoBoldItalic = "Roboto-BoldItalic"
-    case RobotoItalic = "Roboto-Italic"
-    case RobotoLight = "Roboto-Light"
-    case RobotoLightItalic = "Roboto-LightItalic"
-    case RobotoMedium = "Roboto-Medium"
-    case RobotoThin = "Roboto-Thin"
-    case RobotoThinItalic = "Roboto-ThinItalic"
+    case Black = "Roboto-Black"
+    case BlackItalic = "Roboto-BlackItalic"
+    case Bold = "Roboto-Bold"
+    case BoldItalic = "Roboto-BoldItalic"
+    case Italic = "Roboto-Italic"
+    case Light = "Roboto-Light"
+    case LightItalic = "Roboto-LightItalic"
+    case Medium = "Roboto-Medium"
+    case Thin = "Roboto-Thin"
+    case ThinItalic = "Roboto-ThinItalic"
+    case Regular = "Roboto-Regular"
 }
 
 extension Font{

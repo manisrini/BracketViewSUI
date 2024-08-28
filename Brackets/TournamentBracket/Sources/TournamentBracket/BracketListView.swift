@@ -15,6 +15,7 @@ struct BracketListView: View {
     var isLastColumn : Bool
     var isFirstColumn : Bool
     let cellHeight : CGFloat = 100
+    
 
     init(matchups: [Matchup], column : Int,focusedColumn : Int,isLastColumn: Bool, isFirstColumn: Bool) {
         self.matchups = matchups
@@ -53,4 +54,5 @@ struct BracketListView: View {
     BracketListView(matchups: [
         Matchup(id: 1, team1: Team(id: 1, name: "england", image: UIImage(named: "England"), points: 2), team2: Team(id: 2, name: "netherland", image: UIImage(named: "Netherland"), points: 3))
     ], column: 1, focusedColumn: 1, isLastColumn: false, isFirstColumn: false)
+    .environmentObject(TournamentBracketTheme())
 }

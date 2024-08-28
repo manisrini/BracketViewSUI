@@ -16,6 +16,8 @@ struct BracketView: View {
     var isTopMatch : Bool
     var isCollapsed : Bool
     
+    @EnvironmentObject var theme : TournamentBracketTheme
+    
     init(matchup: Matchup, isLastColumn: Bool, isFirstColumn: Bool, heightExp: Int, isTopMatch: Bool, isCollapsed: Bool) {
         self.matchup = matchup
         self.isLastColumn = isLastColumn
@@ -36,8 +38,10 @@ struct BracketView: View {
                 if !isCollapsed{
                     HStack{
                         Text(matchup.date)
+                            .customFontStyle(theme.font)
                         Spacer()
-                        Text("FT")
+                        Text(matchup.additionalInfo)
+                            .customFontStyle(theme.font)
                     }
                 }
                  
@@ -118,4 +122,5 @@ struct BracketView: View {
 }
 #Preview {
     BracketView(matchup: Matchup(id: 1, team1: nil, team2: Team(id: 2, name:"Netherland",image: UIImage(named: "Netherland"), points: 3)),isLastColumn: false,isFirstColumn: true,heightExp: 0,isTopMatch: true,isCollapsed: true)
+        .environmentObject(TournamentBracketTheme())
 }

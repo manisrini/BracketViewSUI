@@ -11,6 +11,7 @@ import DesignSystem
 struct ScoreView: View {
     
     var team : Team?
+    @EnvironmentObject var theme : TournamentBracketTheme
     
     var body: some View {
         HStack{
@@ -24,10 +25,11 @@ struct ScoreView: View {
                 }
                 
                 Text(_team.name)
-                    .font(.custom("Roboto", size: 20))
+                    .customFontStyle(theme.font)
                     .lineLimit(1)
                 Spacer()
                 Text("\(_team.points)")
+                    .customFontStyle(theme.font)
                     .lineLimit(1)
             }else{
                 Image(systemName: "")
@@ -36,6 +38,7 @@ struct ScoreView: View {
                     .cornerRadiusStyle(2)
 
                 Text("TBD")
+                    .customFontStyle(theme.font)
                     .padding(.vertical,5)
             }
         }
@@ -45,4 +48,6 @@ struct ScoreView: View {
 
 #Preview {
     ScoreView(team: Team(id: 1, name: "India", image: UIImage(named: "India",in: .module,compatibleWith: nil), points: 3))
+        .environmentObject(TournamentBracketTheme(fontColor: "123232",font: Fonts.Roboto(.Black, 16)))
+    
 }

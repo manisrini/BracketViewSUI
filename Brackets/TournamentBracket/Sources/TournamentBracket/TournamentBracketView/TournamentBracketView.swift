@@ -29,12 +29,15 @@ public struct Matchup  {
     let id : Int
     let team1 : Team?
     let team2 : Team?
-    let date : String = "29 Jun"
+    let date : String
+    let additionalInfo : String
     
-    public init(id: Int, team1: Team?, team2: Team?) {
+    public init(id: Int, team1: Team?, team2: Team?,date : String = "29 Jun",additionalInfo : String = "") {
         self.id = id
         self.team1 = team1
         self.team2 = team2
+        self.additionalInfo = additionalInfo
+        self.date = date
     }
 }
 
@@ -119,6 +122,7 @@ public struct TournamentBracketView: View {
             }
 
         }
+        .environmentObject(self.viewModel.theme)
         .gesture(drag)
     }
             
@@ -187,5 +191,5 @@ public struct TournamentBracketView: View {
             Matchup(id: 123, team1: Team(id: 25, name: "england", image: UIImage(named: "England",in: .module,compatibleWith: nil), points: 2), team2: Team(id: 26, name: "netherland", image: UIImage(named: "Netherland",in: .module,compatibleWith: nil), points: 3)),
         ])
     ]
-    )))
+    ),theme: TournamentBracketTheme(fontColor: "232321",font: .Roboto(.Medium, 15))))
 }

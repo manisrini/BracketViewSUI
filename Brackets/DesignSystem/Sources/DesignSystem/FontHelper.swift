@@ -7,9 +7,16 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 public enum FontError : Error{
     case failedToRegister
+}
+
+public enum Fonts {
+    case NerkoOne(NerkoOne,CGFloat)
+    case Roboto(Roboto,CGFloat)
+    case RobotoSerif(Roboto_Serif,CGFloat)
 }
 
 public struct FontHelper{
@@ -53,3 +60,42 @@ public struct FontHelper{
     }
 }
 
+
+public struct CustomFont : ViewModifier{
+    
+    var font : Fonts
+    
+    func getFontName(font : Fonts) -> String{
+        switch font {
+        case .NerkoOne(let style, _):
+            return style.rawValue
+        case .Roboto(let style, _):
+            return style.rawValue
+        case .RobotoSerif(let style, _):
+            return style.rawValue
+        }
+    }
+    
+    func getFontSize(font : Fonts) -> CGFloat{
+        switch font {
+        case .NerkoOne(_, let size):
+            return size
+        case .Roboto(_, let size):
+            return size
+        case .RobotoSerif(_, let size):
+            return size
+        }
+    }
+    
+    public func body(content: Content) -> some View {
+        content
+            .font(.custom(getFontName(font: font), size: getFontSize(font: font)))
+    }
+}
+
+
+extension View {
+    public func customFontStyle(_ font : Fonts) -> some View{
+        modifier(CustomFont(font: font))
+    }
+}

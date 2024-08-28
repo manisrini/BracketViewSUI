@@ -79,10 +79,10 @@ struct ContentView: View {
                 
             ]),
             Round(id: 3, matchUps: [
-                Matchup(id: 123, team1: Team(id: 25, name: "england", image: UIImage(named: "England"), points: 2), team2: Team(id: 26, name: "netherland", image: UIImage(named: "Netherland"), points: 3)),
+                Matchup(id: 123, team1: Team(id: 25, name: "england", image: UIImage(named: "England"), points: 2), team2: Team(id: 26, name: "netherland", image: UIImage(named: "Netherland"), points: 3),date: "11 Jun",additionalInfo: "ET"),
             ])
         ]
-        )))
+        ),theme: TournamentBracketTheme(fontColor: "141a00",font: .Roboto(.Regular, 14))))
     }
 }
 
