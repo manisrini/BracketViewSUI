@@ -21,10 +21,12 @@ public class TournamentBracketTheme : ObservableObject{
 public class TournamentBracketViewModel : ObservableObject{
  
     var tournament : Tournament
+    var showTabSwitch : Bool
     var theme : TournamentBracketTheme
     
-    public init(tournament: Tournament,theme : TournamentBracketTheme = TournamentBracketTheme()) {
+    public init(tournament: Tournament,showTabSwitch : Bool = false,theme : TournamentBracketTheme = TournamentBracketTheme()) {
         self.tournament = tournament
+        self.showTabSwitch = showTabSwitch
         self.theme = theme
     }
     

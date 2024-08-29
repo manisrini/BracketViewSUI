@@ -77,16 +77,22 @@ public struct TournamentBracketView: View {
     
     public var body: some View {
         
-        CustomTabView(selectedIndex: $focusedColumnIndex) { prevTabIndex,selectedTabIndex in
-            var steps : Int = 0
-            if selectedTabIndex > prevTabIndex{
-                steps = selectedTabIndex - prevTabIndex
-                moveToNextColumn(steps)
-            }else if selectedTabIndex < prevTabIndex{
-                steps = prevTabIndex - selectedTabIndex
-                moveToPrevColumn(steps)
+        if self.viewModel.showTabSwitch{
+            CustomTabView(
+            numberOfTabs : self.viewModel.tournament.rounds.count,
+            selectedIndex: $focusedColumnIndex) { prevTabIndex,selectedTabIndex in
+                
+                var steps : Int = 0
+                if selectedTabIndex > prevTabIndex{
+                    steps = selectedTabIndex - prevTabIndex
+                    moveToNextColumn(steps)
+                }else if selectedTabIndex < prevTabIndex{
+                    steps = prevTabIndex - selectedTabIndex
+                    moveToPrevColumn(steps)
+                }
             }
         }
+        
         ScrollViewReader{ scrollViewProxy in
             ScrollView(.vertical){
                 
@@ -191,5 +197,6 @@ public struct TournamentBracketView: View {
             Matchup(id: 123, team1: Team(id: 25, name: "england", image: UIImage(named: "England",in: .module,compatibleWith: nil), points: 2), team2: Team(id: 26, name: "netherland", image: UIImage(named: "Netherland",in: .module,compatibleWith: nil), points: 3)),
         ])
     ]
-    ),theme: TournamentBracketTheme(fontColor: "232321",font: .Roboto(.Medium, 15))))
+    ),showTabSwitch: true,theme: TournamentBracketTheme(fontColor: "232321",font: .NerkoOne(.Regular, 18))))
+    .environmentObject(TournamentBracketTheme())
 }

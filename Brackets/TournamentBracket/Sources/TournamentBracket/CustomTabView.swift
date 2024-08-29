@@ -6,15 +6,24 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 typealias selectedTabIndex = Int
 typealias prevSelectedTabIndex = Int
 
 struct CustomTabView: View {
     
-    var tabs : [String] = ["Round of 32","Round of 16","Quarters","Semis","Final"]
+    var tabs : [String] = []
+    var numberOfTabs : Int
+    
     @Binding var selectedIndex : Int
     var didSelectTab : ((prevSelectedTabIndex,selectedTabIndex)->())?
+    
+    init(numberOfTabs: Int = 4, selectedIndex: Binding<Int>, didSelectTab: ((prevSelectedTabIndex, selectedTabIndex) -> Void)? = nil) {
+        self.numberOfTabs = numberOfTabs
+        self._selectedIndex = selectedIndex
+        self.didSelectTab = didSelectTab
+    }
     
     var body: some View {
         ZStack{
@@ -24,7 +33,7 @@ struct CustomTabView: View {
             
             ScrollView(.horizontal,showsIndicators: false){
                 HStack{
-                    ForEach(Array(tabs.enumerated()),id: \.element) { index,tab in
+                    ForEach(Array(getTabs().enumerated()),id: \.element) { index,tab in
                         
                         Button {
                             self.didSelectTab?(selectedIndex,index)
@@ -40,17 +49,27 @@ struct CustomTabView: View {
             }
         }
     }
+    
+    func getTabs() -> [String]{
+        if self.numberOfTabs == 5{
+            return ["Round of 32","Round of 16","Quarters","Semis","Final"]
+        }else{
+            return ["Round of 16","Quarters","Semis","Final"]
+        }
+    }
 }
 
 struct TabItem : View{
     
     var tab : String
     var isEqual : Bool
-    
+    @EnvironmentObject var theme : TournamentBracketTheme
+
     var body : some View{
         Text(tab)
             .foregroundStyle(Color.white)
-            .padding(.horizontal)
+            .padding(.horizontal,16)
+            .customFontStyle(theme.font)
         
         if isEqual{
             Rectangle()
@@ -68,5 +87,5 @@ struct TabItem : View{
 #Preview {
     CustomTabView( selectedIndex: .constant(0), didSelectTab : {_,_ in
         
-    })
+    }).environmentObject(TournamentBracketTheme())
 }
