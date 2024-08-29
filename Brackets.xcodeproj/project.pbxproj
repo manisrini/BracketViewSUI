@@ -47,7 +47,7 @@
 		2A97E60E2C748E2B007D55D1 /* BracketsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BracketsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A97E6122C748E2B007D55D1 /* BracketsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsUITests.swift; sourceTree = "<group>"; };
 		2A97E6142C748E2B007D55D1 /* BracketsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2AFA040E2C7C7E910092F8D0 /* TournamentBracket */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TournamentBracket; sourceTree = "<group>"; };
+		2AA84D5E2C803034000B4980 /* TournamentBracket */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TournamentBracket; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				2A97E5F62C748E29007D55D1 /* Brackets */,
+				2AA84D5E2C803034000B4980 /* TournamentBracket */,
 				2A97E6072C748E2B007D55D1 /* BracketsTests */,
 				2A97E6112C748E2B007D55D1 /* BracketsUITests */,
 				2A97E5F52C748E29007D55D1 /* Products */,
@@ -102,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				2A1F62FF2C7E082600FEE3FD /* DesignSystem */,
-				2AFA040E2C7C7E910092F8D0 /* TournamentBracket */,
 				2A97E5F72C748E29007D55D1 /* BracketsApp.swift */,
 				2A97E5F92C748E29007D55D1 /* ContentView.swift */,
 				2A97E5FB2C748E2B007D55D1 /* Assets.xcassets */,

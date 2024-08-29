@@ -91,6 +91,7 @@ public struct TournamentBracketView: View {
                     moveToPrevColumn(steps)
                 }
             }
+            .environmentObject(self.viewModel.theme)
         }
         
         ScrollViewReader{ scrollViewProxy in

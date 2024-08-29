@@ -15,7 +15,7 @@ let package = Package(
             targets: ["TournamentBracket"])
     ],
     dependencies: [
-        .package(name: designSystem, path: "../\(designSystem)")
+        .package(name: designSystem, path: "../Brackets/\(designSystem)")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
